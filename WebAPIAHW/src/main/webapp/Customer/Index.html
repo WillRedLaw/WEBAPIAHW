@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Banking App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="APIendpoints.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+        <div class="main">
+            <div id="panel0">
+                <h1>Welcome to FFF Banking App</h1>
+                <h1>Customer</h1>
+                <h2>Register Register Here</h2>
+                <p>Email: <input id="customerEmail" type="text" name="customerEmail" placeholder="Email Address"></p>
+                <p>Password: <input id="password" type="text" name="password" placeholder="Password"></p>
+                <button id="createCustomer">Submit</button>
+            </div>
+
+            <div id="panel1">
+                <h3>Please continue with the registration.</h3>
+                <p>Name:<input id="customerName" type="text" name="customerName" placeholder="Name"></p>
+                <p>Address: <input id="customerAddress" type="text" name="customerAddress" placeholder="Address"></p>
+                <button id="updateCustomerDetails" >Submit</button>
+            </div>
+
+            <div id="panel2">
+                <h3>Customer details</h3>
+                <p class="resp-customerId">ID: </p>
+                <p class="resp-customerName">Name: </p>
+                <p class="resp-customerAddress">Address: </p>
+                <p class="resp-customerEmail">Email: </p>
+                <p class="resp-password">Password: </p>
+                <p class="resp-customerCreated">Date created: </p>
+            </div>
+
+            <div id="panel3">
+                <h3>Create an account</h3>
+                <select name="accounts_name" id="accounts">
+                <option value="Visa Debit">Visa Debit</option>
+                <option value="Visa Credit">Visa Credit</option>
+                <option value="Master Card">Master Card</option>
+                <option value="Saving Account">Saving Account</option>
+                </select>
+                <button id="createAccount">Create Account</button>
+            </div>
+
+            <div id="panel4">
+                <p>If you want to create another account please select another account and submit your request. Otherwise you can display your account details.</p>
+                <p>You can create one account by Account Type.</p>
+                <button id="listAllAccount">Display accounts</button>
+            </div>    
+
+            <div id="panel5">  
+                <h3>Account Details</h3>
+                <table id="myTable"></table>
+            </div>
+
+            <div id="panel6">
+                <h3>Display Balance</h3>
+                <select name="displayAccBalance" id="accBalance">
+                <option value="Visa Debit">Visa Debit</option>
+                <option value="Visa Credit">Visa Credit</option>
+                <option value="Master Card">Master Card</option>
+                <option value="Saving Account">Saving Account</option>
+                </select>
+                <button id="displayBalance" >Display Balance</button>
+            </div>
+
+            <div id="panel7">
+                <h3>Create a transaction</h3>
+                <button id="CreateTransaction" >Create Transaction</button>
+            </div>
+
+            <div id="panel8">
+                <h3>Withdrawal</h3>
+                <p>Account Type:<input id="accountOutW" type="text" name="accountOutW" placeholder="Account Type"></p>
+                <p>Account Number:<input id="accountNumberWOut" type="text" name="accountNumberWOut" placeholder="Account Number"></p>
+                <p>Amount: <input id="wAmount" type="text" name="wAmount" placeholder="Amount"></p>
+                <button id="Withdrawal" >Submit</button>
+            </div>
+
+            <div id="panel9">
+                <h3>Account Details</h3>
+                <table id="myTableWithdrawal"> </table>
+            </div>
+
+            <div id="panel10">
+                <h3>Lodgement</h3>
+                <p>Account Type:<input id="accountInL" type="text" name="accountInL" placeholder="Account Type"></p>
+                <p>Account Number:<input id="accountNumberLIn" type="text" name="accountNumberIn" placeholder="Account Number"></p>
+                <p>Amount: <input id="lAmount" type="text" name="lAmount" placeholder="Amount"></p>
+                <button id="Lodgement" >Submit</button>
+            </div>
+            <div id="panel11">
+                <h3>Account Details</h3>
+                <table id="myTableLodgement"></table>
+            </div>
+
+            <div id="panel12">
+                <h3>Transfer to another own account</h3>
+                <p>Account Type From:<input id="accountTypeTOut" type="text" name="accountTypeTOut" placeholder="Account Type From"></p>
+                <p>Account Number From:<input id="accNumberTOut" type="text" name="accNumberTOut" placeholder="Account Number From"></p>
+                <p>Account Type To:<input id="accountTypeTIn" type="text" name="accountTypeTIn" placeholder="Account Type To"></p>
+                <p>Account Number To:<input id="accNumberTIn" type="text" name="accNumberTIn" placeholder="Account Number To"></p>
+                <p>Amount: <input id="amountTransfer" type="text" name="amountTransfer" placeholder="Amount"></p>
+                <button id="TransferBetweenAccounts" >Submit</button>
+            </div>
+
+            <div id="panel13">
+                <h3>Account Details</h3>
+                <table id="myTableTransfer"> </table>
+            </div>
+
+           <div id="panel14">
+                <h3>Transfer to another customer</h3>
+                <p>Account Type From:<input id="accountTypeTCOut" type="text" name="accountTypeTOut" placeholder="Account Type From"></p>
+                <p>Account Number From:<input id="accNumberTCOut" type="text" name="accNumberTOut" placeholder="Account Number From"></p>
+                <p>Receivers Name:<input id="receiversName" type="text" name="accountTypeTIn" placeholder="Receivers Name"></p>
+                <p>Receivers Account Number:<input id="accNumberRec" type="text" name="accNumberTIn" placeholder="Receivers Account Number"></p>
+                <p>Amount: <input id="amountTrCus" type="text" name="amountTrCus" placeholder="Amount"></p>
+                <button id="TransferBetweenCustomers" >Submit</button>
+            </div>
+
+            <div id="panel15">
+                <h3>Account Details</h3>
+                <table id="myTableTransferCustomers"></table>
+            </div>     
+
+            <div id="panel16">
+                <h3>Transaction Details</h3>
+                <select name="accounts_transactions" id="accountsTransactions">
+                <option value="Visa Debit">Visa Debit</option>
+                <option value="Visa Credit">Visa Credit</option>
+                <option value="Master Card">Master Card</option>
+                <option value="Saving Account">Saving Account</option>
+                </select>
+                <button id="displayTransactions">Display Transactions</button>
+                </div>
+
+            <div id="panel17">
+                <table id="myTableTransactions"> </table>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,103 @@
+body{
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    font-weight: 400!important;
+    
+}
+h1{
+    text-align: center!important;
+}
+
+.main{
+    width:60%;
+    margin:auto;
+    
+}
+input{
+    box-sizing: border-box;
+    height: auto;
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+button, select{
+    display: block;
+    width: 100%;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: .5rem 1rem;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    border-radius: .3rem;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    margin-bottom: 10px;
+    cursor:pointer;
+}
+
+p{
+    
+}
+
+#viewContent {
+    padding-left: 20px;
+}
+              
+#viewContent select, #viewContent button {
+    font-size: 25px;
+}
+              
+#viewContent h4 {
+    margin: 10px 0;
+}
+              
+#viewContent .textAlignCenter {
+    text-align: center;
+}
+              
+#viewContent .textAlignCenter img {
+    display: none;
+    width: 100px;
+}
+              
+#viewContent #message table {
+    width: 100%;
+}
+              
+#viewContent #message table th {
+    text-align: left;
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+}
+th {
+    background: #f1f1f1;
+    font-weight: bold;
+    padding: 6px;
+    
+}
+td {
+    background: #f9f9f9;
+    padding: 6px;
+    
+}
+
+
+#panel1, #panel2, #panel3, #panel4, #panel5, #panel6, #panel7, #panel8, #panel9, #panel10, #panel11, #panel12, #panel13, #panel14, #panel15, #panel16, #panel17 {
+    display: none;
+}
+
