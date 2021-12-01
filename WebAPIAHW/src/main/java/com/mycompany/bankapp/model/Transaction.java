@@ -7,7 +7,7 @@ package com.mycompany.bankapp.model;
 
 /**
  *
- * @author genaz
+ * @author
  */
 public class Transaction {
     

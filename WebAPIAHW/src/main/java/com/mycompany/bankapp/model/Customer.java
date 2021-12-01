@@ -7,7 +7,7 @@ package com.mycompany.bankapp.model;
 
 /**
  *
- * @author Hannah
+ * @author
  */
 public class Customer {
     

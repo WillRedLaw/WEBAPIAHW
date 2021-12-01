@@ -7,7 +7,7 @@ package com.mycompany.bankapp.resources;
 
 /**
  *
- * @author genaz
+ * @author 
  */
 public class JavaEE8Resource {
     

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+@author Hannah O'Rourke , Ailbhe Bennett & William Redmond Lawlor
+-->
+<html>
+    <head>
+        <title>Banking App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="APIendpoints.js"></script>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+    </head>
+    <body>
+        <div class="main">
+            <div id="panel0">
+                <h1>Welcome to FFF Banking App</h1>
+                <h1>Admin</h1>
+                <h2>Register New Customer</h2>
+                <button id="createMockUpCustomer">Create Customers</button>
+            </div>
+
+
+            <div id="panel1">
+                <h2>Display customers</h2>
+                <button id="displayMockUpCustomer">List all customers</button>
+                <table id="mockUpCustomers"></table>
+            </div>
+
+            <div id="panel2">
+                <h3>Display Accounts by Customer ID</h3>
+                <p>Customer ID <input id="customerId" type="text" name="customerId" placeholder="CustomerId"></p>
+                <button id="displayAccounts">Display Accounts</button>
+                <table id="myTableDisplayAccounts"></table>
+            </div> 
+
+            <div id="panel13">
+                <h3>Display Transactions by Customer ID and Account Type</h3>
+                <p>Customer ID <input id="customerIdNew" type="text" name="customerIdNew" placeholder="CustomerId"></p>
+                <select name="accounts_transactions" id="accountsTransactions">
+                <option value="Visa Debit">Visa Debit</option>
+                <option value="Visa Credit">Visa Credit</option>
+                <option value="Master Card">Master Card</option>
+                <option value="Saving Account">Saving Account</option>
+                </select>
+                <button id="displayTransactions">Display Transactions</button>
+            </div>
+
+            <div id="panel14">
+                <table id="myTableTransactions"></table>
+            </div>
+        </div>
+    </body>
+</html>

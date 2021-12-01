@@ -7,7 +7,7 @@ package com.mycompany.bankapp.service;
 
 /**
  *
- * @author genaz
+ * @author 
  */
 public class BankAppService {
     

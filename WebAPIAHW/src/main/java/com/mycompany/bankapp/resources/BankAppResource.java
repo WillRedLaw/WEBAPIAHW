@@ -7,7 +7,7 @@ package com.mycompany.bankapp.resources;
 
 /**
  *
- * @author Hannah
+ * @author
  */
 public class BankAppResource {
     
