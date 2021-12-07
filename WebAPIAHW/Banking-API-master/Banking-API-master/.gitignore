@@ -1,0 +1,6 @@
+.idea
+target
+*.iml
+src/main/resources/config.properties
+src/main/resources/META-INF/persistence.xml
+
