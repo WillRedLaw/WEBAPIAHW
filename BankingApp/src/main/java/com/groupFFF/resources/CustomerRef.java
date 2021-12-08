@@ -8,6 +8,7 @@ package com.groupFFF.resources;
 import com.groupFFF.models.Customer;
 import com.groupFFF.service.CustomerService;
 import com.groupFFF.models.Account;
+import com.groupFFF.models.Transaction;
 import com.groupFFF.service.AccountService;
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -74,7 +75,7 @@ public class CustomerRef {
     @GET
     @Path("/{customerID}/accounts/{accountID}/movies")
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Movie> getCustomerAccountMovie(@PathParam("customerID") int c_id, @PathParam("accountID") int a_id ) {
+    public List<Transaction> getCustomerAccountTransaction(@PathParam("customerID") int c_id, @PathParam("accountID") int a_id, @PathParam("id") int t_id) {
         //Get the customer specific in the URI
         Customer cust = CustomerService.getCustomer(c_id);
         //Get a list of accounts within the customer
@@ -85,41 +86,41 @@ public class CustomerRef {
 	return account.getTransactions();
     }
     
-    //Transfer balance (from account (accountID) to account2 (account2ID)
+    //Transfer balance (currentBal) from account (accountId) to account2 (account2Id)
     @PATCH
-    @Path("/{customerID}/accounts/{accountID}/movies/{movieID}/accounts2/{accounts2ID}")
+    @Path("/{customerID}/accounts/{accountID}/movies/{movieID}/accounts2/{accounts2Id}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Movie setCustomerAccountMovie(@PathParam("customerID") int c_id, @PathParam("accountID") int a_id , @PathParam("movieID") int m_id, @PathParam("accounts2ID") int a2_id) {
+    public Transaction setCustomerBal(@PathParam("accountId") int c_id, @PathParam("accountId") int a_id , @PathParam("customerBal") int cb_id, @PathParam("accounts2ID") int a2_id) {
         //Get the customer specified in the URI
         Customer cust = CustomerService.getCustomer(c_id);
         //Get a list of the accounts and then get the acount specified in the URI
         List<Account> accounts = cust.getAccounts();
         Account account = accounts.get(a_id-1);
-        //Get a list of movies in the custoemrs account. get and Store the movie to be removed temporarily. Then remove it from the list.
-        List<Movie> movie = account.getMovies();
-	Movie transferM = movie.get(m_id-1);
-        movie.remove(m_id-1);
-        //For loop to update the ID of all movies in the account.
-        for(int i=0; i<movie.size(); i++){
-            Movie temp1 = movie.get(i);
+        //Get a list of movies in the custoemrs account. get and Store the movie to be removed temporarily.
+        List<Transaction> transactions = account.getTransactions();
+	Transaction transferB = transactions.get(cb_id-1);
+        transactions.remove(cb_id-1);
+        //For loop to update the Id of all transactions 
+        for(int i=0; i<transactions.size(); i++){
+            Transaction temp1 = transactions.get(i);
             temp1.setId(i+1);
-            movie.set(i, temp1);
+            transactions.set(i, temp1);
         }//End for loop
-        //Set the movies List in the account
-        account.setMovies(movie);
+        //Set the Transaction List in the account
+        account.setTransactions(transactions);
         //Replace the old account in the array of accounts with the new one
         accounts.set(a_id-1, account);
         
-        //Get the new account that the movie will be transfered to
+        //Get the new account that the transaction done with
         account = accounts.get(a2_id-1);
-        //Get the list of movies from the account
-        movie = account.getMovies();
-        //Set the ID of the temporarily held movie to be the next id in the nest accounts movie list.
-        transferM.setId(movie.size()+1);
-        //Add the temp movie to the list of movies in the new account
-        movie.add(transferM);
-        //Set the movies in the account
-        account.setMovies(movie);
+        //Get the list of transactions from the account
+        transactions = account.getTransactions();
+        //Set the Id of the temporarily held transaction to be the next id.
+        transferB.setId(transactions.size()+1);
+        //Add the transaction to the list in new account
+        transactions.add(transferB);
+        //Set transaction in the account
+        account.setTransactions(transactions);
         //update the account in the list of accounts
         accounts.set(a2_id-1, account);
         
@@ -127,8 +128,8 @@ public class CustomerRef {
         cust.setAccounts(accounts);
         //Update the customer in the CustomerService
         CustomerService.setCustomer(c_id, cust);
-        //Return the movie that was transfered
-        return transferM;
+        //Return the transaction that was transfered
+        return transferB;
     }//End transfer a movie
     
 }
